@@ -1,11 +1,12 @@
 .header{
-    background-color: #fbfcfe;
+    background-color: rgb(251, 252, 254);
     padding: 15px 10px;
     border-bottom: thin solid #e4e6e9;
     color: #32383e;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .link{
