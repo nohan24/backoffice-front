@@ -1,0 +1,8 @@
+.css-1hhspby-JoyTable-root thead th{
+    font-weight: bold !important;
+    vertical-align: middle !important;
+}
+
+.css-1hhspby-JoyTable-root thead th .MuiTypography-root{
+    font-weight: 600!important;
+}

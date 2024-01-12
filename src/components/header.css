@@ -1,0 +1,18 @@
+.header{
+    background-color: #fbfcfe;
+    padding: 15px 10px;
+    border-bottom: thin solid #e4e6e9;
+    color: #32383e;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.link{
+    color: #32383e !important;
+}
+
+.container{
+    margin-top: 80px;
+    padding: 10px 20px;
+}
