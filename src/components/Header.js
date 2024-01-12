@@ -3,7 +3,7 @@ import HLink from "./MyLink";
 import './header.css'
 import { GlobeAltIcon } from '@heroicons/react/24/solid'
 import {Link, Navigate, Outlet} from "react-router-dom";
-import { LogoutOutlined} from "@mui/icons-material";
+import {LogoutOutlined} from "@mui/icons-material";
 
 export default function Header(){
     const log = localStorage.getItem("auth");
@@ -19,7 +19,10 @@ export default function Header(){
                           <HLink link="Eléments" to="/home/elements/"/>
                       </Stack>
                       <Stack>
-                          <Button color="danger" variant="soft" startDecorator={<LogoutOutlined />}>Déconnexion</Button>
+                          <Button color="danger" variant="soft" startDecorator={<LogoutOutlined />} onClick={() => {
+                              localStorage.clear();
+                              window.location.reload();
+                          }}>Déconnexion</Button>
                       </Stack>
                   </Stack>
                 </div>
@@ -29,6 +32,6 @@ export default function Header(){
             </Stack>
         )
     }else{
-        return <Navigate to="/"/>
+        return <Navigate to="/login"/>
     }
 }
