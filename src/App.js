@@ -16,7 +16,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Navigate to="/myCar/dashboard"/>,
+      element: <Navigate to="/home/dashboard"/>,
       exact: true
     },
     {
@@ -24,45 +24,45 @@ function App() {
       element: <Login/>
     },
     {
-      path: '/myCar',
+      path: '/home',
       element: <Header/>,
       children: [
         {
-          path: '/myCar/dashboard',
+          path: '/home/dashboard',
           element: <Dashboard/>
         },
         {
-          path: '/myCar/elements',
+          path: '/home/elements',
           element: <Element/>,
           children: [
             {
-              path: '/myCar/elements/marque',
+              path: '/home/elements/marque',
               element: <Marque/>,
             },
             {
-              path: '/myCar/elements/categorie',
+              path: '/home/elements/categorie',
               element: <Categorie/>,
             },
             {
-              path: '/myCar/elements/modele',
+              path: '/home/elements/modele',
               element: <Modele/>,
             },
             {
-              path: '/myCar/elements/carburant',
+              path: '/home/elements/carburant',
               element: <Carburant/>,
             },
             {
-              path: '/myCar/elements/equipement',
+              path: '/home/elements/equipement',
               element: <Equipement/>,
             },
             {
-              path: '/myCar/elements/transmission',
+              path: '/home/elements/transmission',
               element: <Transmission/>,
             },
           ]
         },
         {
-          path: '/myCar/annonces-en-attente',
+          path: '/home/annonces-en-attente',
           element: <Annonce/>
         }
       ],

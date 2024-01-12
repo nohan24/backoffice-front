@@ -2,13 +2,14 @@ import {Box, Button, FormControl, FormLabel, Input, Stack} from "@mui/joy";
 import './login.css'
 import Logo from "../components/Logo";
 import {login} from '../services/index'
+import {redirect} from "react-router-dom";
 export default function Login(){
     function submit(e){
         e.preventDefault();
         var formData = new FormData(e.currentTarget)
         login(formData).then(resp => {
             localStorage.setItem("auth", resp.data.token)
-            window.location.href="/myCar/dashboard"
+            redirect("/home/dashboard");
         }).catch(error => {
             console.log(error.response.data.message)
         })

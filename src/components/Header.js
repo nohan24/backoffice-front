@@ -13,10 +13,10 @@ export default function Header(){
                 <div className="header">
                   <Stack direction="row" justifyContent="space-between" sx={{padding: '0px 30px 0px 0px'}}>
                       <Stack direction="row" spacing={2} alignItems="flex-start">
-                          <Link className="link" to="/myCar/dashboard"><GlobeAltIcon width={30}></GlobeAltIcon></Link>
-                          <HLink link="Dashboard" to="/myCar/dashboard"/>
-                          <HLink link="Annonces" to="/myCar/annonces-en-attente"/>
-                          <HLink link="Eléments" to="/myCar/elements/"/>
+                          <Link className="link" to="/home/dashboard"><GlobeAltIcon width={30}></GlobeAltIcon></Link>
+                          <HLink link="Dashboard" to="/home/dashboard"/>
+                          <HLink link="Annonces" to="/home/annonces-en-attente"/>
+                          <HLink link="Eléments" to="/home/elements/"/>
                       </Stack>
                       <Stack>
                           <Button color="danger" variant="soft" startDecorator={<LogoutOutlined />}>Déconnexion</Button>
