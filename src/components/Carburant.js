@@ -1,7 +1,7 @@
 import {Box, Button, FormControl, FormHelperText, FormLabel, Grid, Input, Snackbar, Stack, Typography} from "@mui/joy";
 import {Add, InfoOutlined} from "@mui/icons-material";
 import {useEffect, useState} from "react";
-import {getCarburants, insertCarburant} from '../services/index'
+import {getCarburants, insertCarburant, deleteCarburant} from '../services/index'
 import Loading from "./Loading";
 import Table from "@mui/joy/Table";
 
@@ -32,6 +32,12 @@ export default function Carburant(){
                 }
             })
         }
+    }
+
+    const deleted = (id) => {
+        deleteCarburant(id).then(() => {
+            setCarburants(null)
+        });
     }
     return(
         <>
@@ -96,7 +102,7 @@ export default function Carburant(){
                                 {
                                     carburants ? carburants.map((d,index) => {
                                         return(
-                                            <tr id={index}>
+                                            <tr key={index}>
                                                 <td>
                                                     <Typography
                                                         level="title-md"
@@ -107,7 +113,7 @@ export default function Carburant(){
                                                 </td>
 
                                                 <td>
-                                                    <Button color="danger" variant="soft">Supprimer</Button>
+                                                    <Button color="danger" onClick={() => deleted(d._id)} variant="soft">Supprimer</Button>
                                                 </td>
                                             </tr>
                                         )

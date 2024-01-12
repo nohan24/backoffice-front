@@ -69,3 +69,45 @@ export async function insertTransmission(data){
         headers: {"Authorization" : `Bearer ${token}`}
     });
 }
+
+export async function deleteMarque(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/marques/" + id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}
+
+export async function deleteModele(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/modeles/" + id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}
+
+export async function deleteCategorie(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/categories/"+id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}
+
+export async function deleteCarburant(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/carburants/"+id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}
+
+export async function deleteEquipement(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/equipements/"+id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}
+
+export async function deleteTransmission(id){
+    let token = localStorage.getItem("auth");
+    return axios.delete("https://backoffice-production-0434.up.railway.app/transmissions/"+id, {
+        headers: {"Authorization" : `Bearer ${token}`}
+    });
+}

@@ -16,7 +16,7 @@ import Table from '@mui/joy/Table';
 import './table.css'
 import {useEffect, useState} from "react";
 import Loading from "./Loading";
-import {getModeles, getMarques, insertModele} from '../services/index'
+import {getModeles, getMarques, insertModele, deleteModele, deleteCategorie} from '../services/index'
 export default function Modele(){
     const [modele, setModele] = useState(null);
     const [marque, setMarque] = useState([])
@@ -46,6 +46,11 @@ export default function Modele(){
                 }
             })
         }
+    }
+    const deleted = (id) => {
+        deleteModele(id).then(() => {
+            setModele(null)
+        });
     }
     return(
         <>
@@ -146,7 +151,7 @@ export default function Modele(){
 
 
                                             <td>
-                                                <Button color="danger" variant="soft">Supprimer</Button>
+                                                <Button color="danger" onClick={() => deleted(m._id)} variant="soft">Supprimer</Button>
                                             </td>
                                         </tr>
                                     )

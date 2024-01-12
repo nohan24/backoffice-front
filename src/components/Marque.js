@@ -3,7 +3,7 @@ import {Add, InfoOutlined} from "@mui/icons-material";
 import Table from "@mui/joy/Table";
 import Loading from "./Loading";
 import {useEffect, useState} from "react";
-import {getMarques, insertMarque} from "../services";
+import {getMarques, insertMarque, deleteMarque, deleteCategorie} from "../services";
 
 export default function Marque(){
     const [error, setError] = useState(false);
@@ -29,6 +29,12 @@ export default function Marque(){
                 }
             })
         }
+    }
+
+    const deleted = (id) => {
+        deleteMarque(id).then(() => {
+            setMarque(null)
+        });
     }
 
     return(
@@ -106,7 +112,7 @@ export default function Marque(){
                                             </td>
 
                                             <td>
-                                                <Button color="danger" variant="soft">Supprimer</Button>
+                                                <Button color="danger" onClick={() => deleted(d._id)} variant="soft">Supprimer</Button>
                                             </td>
                                         </tr>
                                     )
