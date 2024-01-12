@@ -21,13 +21,13 @@ export default function Carburant(){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("carburant") == ""){
+        if(formData.get("carburant") === ""){
             setError(true);
         }else{
             insertCarburant(formData).then((response) => {
                 setCarburants(null)
             }).catch(error => {
-                if(error.response.status == 400){
+                if(error.response.status === 400){
                     setOpen(true)
                 }
             })

@@ -21,13 +21,13 @@ export default function Transmission (){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("transmission") == ""){
+        if(formData.get("transmission") === ""){
             setError(true);
         }else{
             insertTransmission(formData).then((response) => {
                 setTransmissions(null)
             }).catch(error => {
-                if(error.response.status == 400){
+                if(error.response.status === 400){
                     setOpen(true)
                 }
             })

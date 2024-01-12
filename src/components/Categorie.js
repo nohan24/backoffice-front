@@ -21,14 +21,14 @@ export default function Categorie(){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("categorie") == ""){
+        if(formData.get("categorie") === ""){
             setError(true);
         }else{
             insertCategorie(formData).then((response) => {
 
                 setCategories(categories)
             }).catch(error => {
-                if(error.response.status == 400){
+                if(error.response.status === 400){
                     setOpen(true)
                 }
             })

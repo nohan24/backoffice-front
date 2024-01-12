@@ -35,7 +35,7 @@ export default function Modele(){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("modele") == ""){
+        if(formData.get("modele") === ""){
             setError(true);
         }else{
             insertModele(formData).then((response) => {

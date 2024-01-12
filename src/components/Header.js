@@ -1,9 +1,9 @@
-import {Button, Dropdown, Menu, MenuButton, MenuItem, Stack} from "@mui/joy";
+import {Button, Stack} from "@mui/joy";
 import HLink from "./MyLink";
 import './header.css'
 import { GlobeAltIcon } from '@heroicons/react/24/solid'
 import {Link, Navigate, Outlet} from "react-router-dom";
-import {ArrowDropDown, LogoutOutlined} from "@mui/icons-material";
+import { LogoutOutlined} from "@mui/icons-material";
 
 export default function Header(){
     const log = localStorage.getItem("auth");

@@ -6,6 +6,6 @@ export default function Logo(){
             height: 150 + 'px',
             margin: 'auto',
             borderRadius: 100
-        }} src={Image}/>
+        }} src={Image} alt="logo"/>
     )
 }

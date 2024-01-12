@@ -22,13 +22,13 @@ export default function Equipement(){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("equipement") == ""){
+        if(formData.get("equipement") === ""){
             setError(true);
         }else{
             insertEquipement(formData).then((response) => {
                 setEquipements(null)
             }).catch(error => {
-                if(error.response.status == 400){
+                if(error.response.status === 400){
                     setOpen(true)
                 }
             })

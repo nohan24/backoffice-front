@@ -18,13 +18,13 @@ export default function Marque(){
     const ajout = (e) => {
         e.preventDefault();
         var formData = new FormData(e.target);
-        if(formData.get("marque") == ""){
+        if(formData.get("marque") === ""){
             setError(true);
         }else{
             insertMarque(formData).then((response) => {
                 setMarque(null)
             }).catch(error => {
-                if(error.response.status == 400){
+                if(error.response.status === 400){
                     setOpen(true)
                 }
             })
