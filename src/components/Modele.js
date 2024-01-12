@@ -16,7 +16,7 @@ import Table from '@mui/joy/Table';
 import './table.css'
 import {useEffect, useState} from "react";
 import Loading from "./Loading";
-import {getModeles, getMarques, insertModele, deleteModele, deleteCategorie} from '../services/index'
+import {getModeles, getMarques, insertModele, deleteModele} from '../services/index'
 export default function Modele(){
     const [modele, setModele] = useState(null);
     const [marque, setMarque] = useState([])

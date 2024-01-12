@@ -1,7 +1,7 @@
 import {Box, Button, FormControl, FormHelperText, FormLabel, Grid, Input, Snackbar, Stack, Typography} from "@mui/joy";
 import {Add, InfoOutlined} from "@mui/icons-material";
 import {useEffect, useState} from "react";
-import {deleteCategorie, getEquipements, insertEquipement, deleteEquipement} from '../services/index'
+import {getEquipements, insertEquipement, deleteEquipement} from '../services/index'
 import Loading from "./Loading";
 import Table from "@mui/joy/Table";
 
