@@ -9,6 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import {Done, Clear} from "@mui/icons-material";
+
 
 export default function AnnonceCard(){
     return(
@@ -53,14 +55,22 @@ export default function AnnonceCard(){
                                 52.000.000 MGA
                             </Typography>
                         </div>
-                        <Stack>
+                        <Stack direction="row" spacing={1}>
                             <Button
-                                variant="solid"
+                                variant="soft"
                                 size="md"
-                                color="primary"
-                                aria-label="Explore Bahamas Islands"
+                                color="danger"
+                                startDecorator={<Clear />}
                             >
-                                Explore
+                                Refuser
+                            </Button>
+                            <Button
+                                variant="soft"
+                                size="md"
+                                color="success"
+                                startDecorator={<Done />}
+                            >
+                                Valider l'annonce
                             </Button>
                         </Stack>
                     </Stack>
