@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function login(formData){
-    return axios.post("https://backoffice-production-0434.up.railway.app/login", formData);
+    return axios.post("https://backoffice-production-0434.up.railway.app/auth/login", formData);
 }
 
 export async function getMarques(){
