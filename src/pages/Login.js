@@ -2,18 +2,7 @@ import {Box, Button, FormControl, FormLabel, Input, Stack} from "@mui/joy";
 import './login.css'
 import Logo from "../components/Logo";
 import {login} from '../services/index'
-import {redirect} from "react-router-dom";
-export default function Login(){
-    function submit(e){
-        e.preventDefault();
-        var formData = new FormData(e.currentTarget)
-        login(formData).then(resp => {
-            localStorage.setItem("auth", resp.data.token)
-            redirect("/home/dashboard");
-        }).catch(error => {
-            console.log(error.response.data.message)
-        })
-    }
+import { useNavigate } from 'react-router-dom';export default function Login(){
 
     return(
         <Box  sx={{
@@ -41,22 +30,40 @@ export default function Login(){
                 width: 500
             }}>
                 <Logo></Logo>
-                <form onSubmit={(e) => submit(e)}>
-                    <FormControl required>
-                        <FormLabel>Nom d'utilisateur</FormLabel>
-                        <Input type="text" name="email" value="admin@gmail.com"/>
-                    </FormControl>
-                    <FormControl required>
-                        <FormLabel>Mot de passe</FormLabel>
-                        <Input type="password" name="password" value="root"/>
-                    </FormControl>
-                    <Stack>
-                        <Button type="submit" fullWidth>
-                            Se connecter
-                        </Button>
-                    </Stack>
-                </form>
+                <Form/>
             </Stack>
         </Box>
+    )
+}
+
+function Form(){
+    const navigate = useNavigate();
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        var formData = new FormData(e.currentTarget);
+        login(formData).then(resp => {
+            localStorage.setItem("auth", resp.data.token);
+            navigate("/");
+        }).catch(error => {
+            console.log(error.response.data.message);
+        });
+    };
+    return(
+        <form onSubmit={(e) => onSubmit(e)}>
+            <FormControl required>
+                <FormLabel>Nom d'utilisateur</FormLabel>
+                <Input type="text" name="email" value="admin@gmail.com"/>
+            </FormControl>
+            <FormControl required>
+                <FormLabel>Mot de passe</FormLabel>
+                <Input type="password" name="password" value="root"/>
+            </FormControl>
+            <Stack>
+                <Button type="submit" fullWidth>
+                    Se connecter
+                </Button>
+            </Stack>
+        </form>
     )
 }
