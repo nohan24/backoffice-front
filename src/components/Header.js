@@ -17,6 +17,7 @@ export default function Header(){
                           <HLink link="Dashboard" to="/home/dashboard"/>
                           <HLink link="Annonces" to="/home/annonces-en-attente"/>
                           <HLink link="Eléments" to="/home/elements/"/>
+                          <HLink link="Commission" to="/home/commission/"/>
                       </Stack>
                       <Stack>
                           <Button color="danger" variant="soft" startDecorator={<LogoutOutlined />} onClick={() => {

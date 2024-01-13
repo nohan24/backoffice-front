@@ -64,7 +64,11 @@ function App() {
         {
           path: '/home/annonces-en-attente',
           element: <Annonce/>
-        }
+        },
+        {
+          path: '/home/commission',
+          element: <Annonce/>
+        },
       ],
 
     },

@@ -57,7 +57,7 @@ export default function AnnonceCard(){
                         </div>
                         <Stack direction="row" spacing={1}>
                             <Button
-                                variant="soft"
+                                variant="outlined"
                                 size="md"
                                 color="danger"
                                 startDecorator={<Clear />}
@@ -65,7 +65,7 @@ export default function AnnonceCard(){
                                 Refuser
                             </Button>
                             <Button
-                                variant="soft"
+                                variant="outlined"
                                 size="md"
                                 color="success"
                                 startDecorator={<Done />}
