@@ -5,12 +5,14 @@ import CircularProgress from '@mui/joy/CircularProgress';
 import Typography from '@mui/joy/Typography';
 import {Announcement, People, Troubleshoot, Sell} from '@mui/icons-material';
 import { BarChart } from '@mui/x-charts/BarChart';
+import FormControl from '@mui/joy/FormControl';
+import FormLabel from '@mui/joy/FormLabel';
+import Input from '@mui/joy/Input';
 
 export default function Dashboard(){
     const chartSetting = {
-
-        width: 1000,
-        height: 600,
+        width: 900,
+        height: 400,
     };
     const dataset = [
         {
@@ -155,7 +157,19 @@ export default function Dashboard(){
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid xs={12}>
+                <Grid xs={12} sx={{margin: '30px 0 10px 0', textAlign: 'center'}}>
+                    <h2>Statistiques d'annonce par mois</h2>
+                </Grid>
+
+                <Grid xs={12} sx={{marginBottom: 4}}>
+                    <div style={{display: 'flex', justifyContent:'center'}}>
+                        <FormControl>
+                            <FormLabel>Filtrer par année : </FormLabel>
+                            <Input placeholder="Placeholder" />
+                        </FormControl>
+                    </div>
+                </Grid>
+                <Grid xs={12}  display="flex"  justifyContent="center">
                     <BarChart
                         dataset={dataset}
                         xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
@@ -163,6 +177,7 @@ export default function Dashboard(){
                         {...chartSetting}
                     />
                 </Grid>
+
             </Grid>
         </>
     );
