@@ -158,7 +158,7 @@ export default function Dashboard(){
                     </Card>
                 </Grid>
                 <Grid xs={12} sx={{margin: '30px 0 10px 0', textAlign: 'center'}}>
-                    <h2>Statistiques d'annonce par mois</h2>
+                    <h2>Répartition du nombre d'annonce par mois</h2>
                 </Grid>
 
                 <Grid xs={12} sx={{marginBottom: 4}}>
