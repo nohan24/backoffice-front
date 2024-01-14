@@ -111,3 +111,17 @@ export async function deleteTransmission(id){
         headers: {"Authorization" : `Bearer ${token}`}
     });
 }
+
+export async function updateCommission(data){
+    let token = localStorage.getItem("auth");
+    return axios.put("https://backoffice-production-0434.up.railway.app/commissions", data, {
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}
+
+export async function getCommission(){
+    let token = localStorage.getItem("auth");
+    return axios.get("https://backoffice-production-0434.up.railway.app/commissions", {
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}

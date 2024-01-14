@@ -5,9 +5,6 @@ import CircularProgress from '@mui/joy/CircularProgress';
 import Typography from '@mui/joy/Typography';
 import {Announcement, People, Troubleshoot, Sell} from '@mui/icons-material';
 import { BarChart } from '@mui/x-charts/BarChart';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
 
 export default function Dashboard(){
     const chartSetting = {
@@ -158,22 +155,15 @@ export default function Dashboard(){
                     </Card>
                 </Grid>
                 <Grid xs={12} sx={{margin: '30px 0 10px 0', textAlign: 'center'}}>
-                    <h2>Répartition du nombre d'annonce par mois</h2>
+                    <h2>Répartition du nombre d'annonce / vente par mois</h2>
                 </Grid>
 
-                <Grid xs={12} sx={{marginBottom: 4}}>
-                    <div style={{display: 'flex', justifyContent:'center'}}>
-                        <FormControl>
-                            <FormLabel>Filtrer par année : </FormLabel>
-                            <Input placeholder="Placeholder" />
-                        </FormControl>
-                    </div>
-                </Grid>
                 <Grid xs={12}  display="flex"  justifyContent="center">
                     <BarChart
                         dataset={dataset}
                         xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-                        series={[{ dataKey: 'seoul', label: "Annonce par mois", valueFormatter }]}
+                        series={[{ dataKey: 'seoul', label: "Annonce par mois", valueFormatter },
+                            { dataKey: 'london', label: "Vente par mois", valueFormatter }]}
                         {...chartSetting}
                     />
                 </Grid>

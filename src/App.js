@@ -12,6 +12,7 @@ import Modele from "./components/Modele";
 import Carburant from "./components/Carburant";
 import Equipement from "./components/Equipement";
 import Transmission from "./components/Transmission";
+import Commission from "./pages/Commission";
 function App() {
   const router = createBrowserRouter([
     {
@@ -67,7 +68,7 @@ function App() {
         },
         {
           path: '/home/commission',
-          element: <Annonce/>
+          element: <Commission/>
         },
       ],
 
