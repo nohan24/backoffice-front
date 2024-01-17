@@ -3,44 +3,43 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
-import Golf from '../img/golf.jpg'
 import {Button, Stack} from "@mui/joy";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {Done, Clear} from "@mui/icons-material";
+import {images} from '../services/index'
 
-
-export default function AnnonceCard(){
+export default function AnnonceCard({data}){
+    function currencyFormat(num) {
+        return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     return(
         <>
             <Card className="card-style">
                 <div>
-                    <Typography level="title-lg"><p style={{
+                    <Typography level="title-lg"><span style={{
                         margin: '5px 0',
                         width: '100%',
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis'
-                    }}>Volkswagen Golf 7 2.0 TDI</p></Typography>
-                    <Typography level="body-sm">Publié le : 2023/12/12</Typography>
+                    }}>{data.detailAnnonce.titre_voiture}</span></Typography>
+                    <Typography level="body-sm">Publié le : {data.voiture.dateCreation}</Typography>
 
                 </div>
                 <AspectRatio minHeight="400px" maxHeight="400px">
                     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                        <SwiperSlide>
-                            <img src={Golf} alt=""/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={Golf} alt=""/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={Golf} alt=""/>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src={Golf} alt=""/>
-                        </SwiperSlide>
+                        {
+                            data.detailAnnonce.images.map((d,i) => {
+                                return(
+                                    <SwiperSlide key={i}>
+                                        <img src={images(d)} alt=""/>
+                                    </SwiperSlide>
+                                )
+                            })
+                        }
 
                     </Swiper>
                 </AspectRatio>
@@ -48,11 +47,11 @@ export default function AnnonceCard(){
                     <Stack direction="row"
                            justifyContent="space-between"
                            alignItems="center"
-                            sx={{width: 100 + '%'}}>
+                           sx={{width: 100 + '%'}}>
                         <div>
                             <Typography level="body-sm">Prix de la voiture :</Typography>
                             <Typography fontSize="lg" fontWeight="lg">
-                                52.000.000 MGA
+                                {currencyFormat(data.voiture.prix)} MGA
                             </Typography>
                         </div>
                         <Stack direction="row" spacing={1}>
