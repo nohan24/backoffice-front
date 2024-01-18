@@ -136,3 +136,17 @@ export async function getAnnonces(){
         headers: {"Authorization": `Bearer ${token}`}
     });
 }
+
+export async function validateannonce(id){
+    let token = localStorage.getItem("auth");
+    return axiosInstance.put("http://localhost:8080/validation/annonces/" + id, null,{
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}
+
+export async function refuser(id){
+    let token = localStorage.getItem("auth");
+    return axiosInstance.delete("http://localhost:8080/validation/annonces/" + id,{
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}

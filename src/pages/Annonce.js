@@ -9,25 +9,29 @@ export default function Annonce(){
     useEffect(() => {
         getAnnonces().then((response) => {
             setAnnonces(response.data)
-        })
-    }, []);
+        }).catch((error) => {
+
+        });
+    }, [annonces]);
     return(
         <>
             <Box>
                 <Grid container spacing={2} sx={{ flexGrow: 1 }}>
                     <Grid xs={12}>
                     <Loading data={annonces}>
-                        {
-                            annonces ? annonces.map((a,i) => {
-                                return(
-                                    <Grid key={i} xs={12} sm={4} md={6}>
-                                        <AnnonceCard data={a}/>
-                                    </Grid>
-                                )
-                            }) : ""
-                        }
+
                     </Loading>
+
                     </Grid>
+                    {
+                        annonces ? annonces.map((a,i) => {
+                            return(
+                                <Grid key={i} sm={4} md={6}>
+                                    <AnnonceCard data={a}/>
+                                </Grid>
+                            )
+                        }) : ""
+                    }
                 </Grid>
             </Box>
         </>

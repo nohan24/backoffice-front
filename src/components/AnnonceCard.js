@@ -9,11 +9,19 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {Done, Clear} from "@mui/icons-material";
-import {images} from '../services/index'
+import {images, validateannonce, refuser} from '../services/index'
 
 export default function AnnonceCard({data}){
     function currencyFormat(num) {
         return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
+    function reject(id){
+        refuser(id);
+    }
+
+    function valide(id){
+        validateannonce(id);
     }
     return(
         <>
@@ -60,6 +68,7 @@ export default function AnnonceCard({data}){
                                 size="md"
                                 color="danger"
                                 startDecorator={<Clear />}
+                                onClick={() => reject(data.voiture.id)}
                             >
                                 Refuser
                             </Button>
@@ -68,6 +77,7 @@ export default function AnnonceCard({data}){
                                 size="md"
                                 color="success"
                                 startDecorator={<Done />}
+                                onClick={() => valide(data.voiture.id)}
                             >
                                 Valider l'annonce
                             </Button>
