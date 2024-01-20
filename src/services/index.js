@@ -150,3 +150,11 @@ export async function refuser(id){
         headers: {"Authorization": `Bearer ${token}`}
     });
 }
+
+export async function stat(){
+    let token = localStorage.getItem("auth");
+    return axiosInstance.get("http://localhost:8080/statistiques",{
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}
+

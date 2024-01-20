@@ -13,6 +13,27 @@ export default function Annonce(){
 
         });
     }, [annonces]);
+
+    function render(){
+        if(annonces.length > 0){
+            return(
+                annonces.map((a,i) => {
+                    return(
+                        <Grid key={i} sm={4} md={6}>
+                            <AnnonceCard data={a}/>
+                        </Grid>
+                    )
+                })
+            )
+        }else{
+            return (
+                <Grid xs={12}>
+                    <h2 style={{textAlign: 'center'}}>Pas d'annonce non validé.</h2>
+                </Grid>
+            )
+        }
+    }
+
     return(
         <>
             <Box>
@@ -24,13 +45,9 @@ export default function Annonce(){
 
                     </Grid>
                     {
-                        annonces ? annonces.map((a,i) => {
-                            return(
-                                <Grid key={i} sm={4} md={6}>
-                                    <AnnonceCard data={a}/>
-                                </Grid>
-                            )
-                        }) : ""
+                        annonces ?
+                            render()
+                            : ""
                     }
                 </Grid>
             </Box>
