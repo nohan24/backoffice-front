@@ -158,3 +158,10 @@ export async function stat(){
     });
 }
 
+export async function statvente(year){
+    let token = localStorage.getItem("auth");
+    return axiosInstance.get("https://rest-production-e2d3.up.railway.app/statistiques/ventes?year=" + year,{
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+}
+
