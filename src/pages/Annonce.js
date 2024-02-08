@@ -28,7 +28,7 @@ export default function Annonce(){
         }else{
             return (
                 <Grid xs={12}>
-                    <h2 style={{textAlign: 'center'}}>Pas d'annonce non validé.</h2>
+                    <h2  style={{textAlign: 'center'}}>Pas d'annonce non validé.</h2>
                 </Grid>
             )
         }

@@ -131,7 +131,7 @@ export default function Dashboard(){
                             </Card>
                         </Grid>
                         <Grid xs={12} sx={{margin: '30px 0 10px 0', textAlign: 'center'}}>
-                            <h2>Répartition du nombre moyenne d'annonce / vente par mois</h2>
+                            <h2>Pourcentage de la répartition des publications d’annonce par mois</h2>
                         </Grid>
 
                         <Grid xs={12}  display="flex"  justifyContent="center">
